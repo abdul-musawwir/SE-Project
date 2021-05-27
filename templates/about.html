@@ -1,0 +1,13 @@
+{% extends 'layout.html'%}
+{% block body %}
+    <div class="jumbutton text-center">
+        <h1 style="margin: 200px;"></h1>
+        <h1 class="lead" style="flex: content; padding-bottom: 30px; font-size: x-large;"> Results.</h>
+            <p style="flex: content; padding-bottom: 30px; font-size: x-large;">The inserted image is classified as: {{results[0]}}</p>
+    </div>
+	{% for r in results[1] %}
+        <li class="list-group-item" style="flex: content; padding-bottom: 30px; font-size:medium;">Prediction {{loop.index}}: </li>
+        <img src = {{"validation/"+results[0]+"/"+r}} alt={{"validation/"+results[0]+"/"+r}} style="width:300px;">
+        <!-- <img src = "{{url_for('static',filename = 'images/23.jpg')}}" alt="{{url_for('static',filename = 'images/23.jpg')}}" style="width:300px"> -->
+    {% endfor%}
+{% endblock %}
